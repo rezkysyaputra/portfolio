@@ -3,7 +3,6 @@ import Contact from "@/components/Contact";
 import {
   FaReact,
   FaNodeJs,
-  FaGitAlt,
   FaLaravel,
   FaLinkedin,
   FaGithubSquare,
@@ -11,18 +10,11 @@ import {
   FaSun,
   FaMoon,
   FaInstagramSquare,
+  FaPhp,
 } from "react-icons/fa";
-import { MdMiscellaneousServices } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 import { RiTailwindCssFill } from "react-icons/ri";
-import {
-  SiExpress,
-  SiJest,
-  SiMongodb,
-  SiSwagger,
-  SiTypescript,
-} from "react-icons/si";
-import { PiFileSqlFill } from "react-icons/pi";
+import { SiMongodb, SiMysql, SiSwagger, SiTypescript } from "react-icons/si";
 import { RxHamburgerMenu } from "react-icons/rx";
 import ProjectCard from "@/components/ProjectCard";
 import IconCard from "@/components/IconCard";
@@ -36,14 +28,14 @@ const skills = [
     color: "hover:text-green-500",
   },
   {
+    name: "PHP",
+    icon: <FaPhp />,
+    color: "hover:text-blue-500",
+  },
+  {
     name: "Laravel",
     icon: <FaLaravel />,
     color: "hover:text-red-500",
-  },
-  {
-    name: "Express Js",
-    icon: <SiExpress />,
-    color: "hover:text-yellow-500",
   },
   {
     name: "TailwindCss",
@@ -61,24 +53,9 @@ const skills = [
     color: "hover:text-green-700",
   },
   {
-    name: "Git",
-    icon: <FaGitAlt />,
-    color: "hover:text-red-500",
-  },
-  {
-    name: "SQL",
-    icon: <PiFileSqlFill />,
-    color: "hover:text-blue-500",
-  },
-  {
-    name: "Jest",
-    icon: <SiJest />,
-    color: "hover:text-red-500",
-  },
-  {
-    name: "Rest API",
-    icon: <MdMiscellaneousServices />,
-    color: "hover:text-blue-800",
+    name: "MySQL",
+    icon: <SiMysql />,
+    color: "hover:text-yellow-500",
   },
   {
     name: "Swagger",
@@ -122,7 +99,7 @@ export default function HomePage() {
         >
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden  text-2xl font-bold mt-6"
+            className="md:hidden text-2xl font-bold mt-10 mb-5"
           >
             {isOpen ? <IoClose /> : <RxHamburgerMenu />}
           </button>
@@ -149,7 +126,7 @@ export default function HomePage() {
         </div>
         <h1 className="text-2xl font-bold">
           <a href="/">
-            Code<span className="text-yellow-500">Kz.</span>
+            Rez<span className="text-yellow-500">Dev.</span>
           </a>
         </h1>
         <nav className="hidden md:flex flex-row space-x-6 font-semibold">
@@ -199,12 +176,16 @@ export default function HomePage() {
             className="absolute mx-auto top-0 left-0 right-0"
           />
         </div>
-        <h2 className="text-4xl font-extrabold">Hi, I'm Rezky</h2>
-        <p className="text-lg mt-4 max-w-2xl mx-auto text-gray-500 dark:text-gray-300">
-          A passionate full-stack developer who loves building interactive and
-          engaging user experiences.
-        </p>
-        <div className="flex justify-center space-x-6 mt-6 pt-4">
+        <div className="text-left md:text-center">
+          <h2 className="text-4xl font-extrabold">
+            Hi, I'm <span className="text-yellow-500">Rezky</span>
+          </h2>
+          <p className="text-lg mt-4 max-w-2xl mx-auto text-gray-500 dark:text-gray-300">
+            A passionate full-stack web developer who loves building interactive
+            and engaging user experiences.
+          </p>
+        </div>
+        <div className="flex md:justify-center space-x-6 mt-6 pt-4">
           <Link
             className="hover:text-yellow-500 dark:hover:text-yellow-500"
             href="https://github.com/rezkysyaputra"
@@ -226,7 +207,9 @@ export default function HomePage() {
         </div>
         {/* About */}
         <div id="about" className="mt-28 pt-4">
-          <h2 className="text-3xl font-bold text-center mb-14">About Me</h2>
+          <h2 className="text-3xl font-bold text-center mb-14 text-yellow-500">
+            About Me
+          </h2>
           <div className="grid md:grid-cols-2 gap-6 items-center text-lg leading-relaxed ">
             <img
               src="/about-portfolio-clear.png"
@@ -235,21 +218,27 @@ export default function HomePage() {
               width={500}
               className="mx-auto"
             />
-            <div>
-              <p className="md:text-left md:max-w-md">
-                Hi! I'm <span className="font-bold">Muh. Rezky Syaputra</span>,
-                a{" "}
-                <span className="font-bold text-yellow-500">
+            <div className="text-left md:max-w-md">
+              <p>
+                Hi! I'm{" "}
+                <span className="font-semibold">Muh. Rezky Syaputra</span>, a{" "}
+                <span className="font-semibold text-yellow-500">
                   Fullstack Web Developer
                 </span>{" "}
                 from Southeast Sulawesi, Indonesia, currently based in
-                Yogyakarta. I'm studying at Universitas Amikom Yogyakarta and
-                passionate about building intuitive and efficient web
+                Yogyakarta.
+              </p>
+              <p>
+                I'm studying at{" "}
+                <span className="font-semibold">
+                  Universitas Amikom Yogyakarta
+                </span>{" "}
+                and passionate about building intuitive and efficient web
                 applications. With expertise in both front-end and back-end
                 development, I focus on creating user-friendly solutions that
                 make an impact.
               </p>
-              <div className="flex justify-center md:justify-start">
+              <div className="flex justify-start">
                 <Link
                   href="#"
                   className="w-fit flex space-x-2 items-center py-2 px-4 rounded-lg mt-4 bg-transparent border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white dark:hover:text-white transition duration-300 dark:text-yellow-500"
@@ -262,7 +251,9 @@ export default function HomePage() {
         </div>
         {/* Skilss */}
         <div className="mt-28 pt-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Tech Stack</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-yellow-500">
+            Tech Stack
+          </h2>
           <div className="flex flex-wrap md:max-w-2xl mx-auto items-center gap-4 justify-center">
             {skills.map((skill, index) => (
               <IconCard {...skill} index={index} />
@@ -271,7 +262,9 @@ export default function HomePage() {
         </div>
         {/* Projects */}
         <div id="projects" className="mt-28 pt-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-yellow-500">
+            Projects
+          </h2>
           <div className="flex flex-wrap justify-center gap-6 text-start">
             {projects.map((project, index) => (
               <ProjectCard {...project} index={index} />

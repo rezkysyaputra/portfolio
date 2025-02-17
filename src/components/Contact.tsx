@@ -36,7 +36,9 @@ const Contact: React.FC = () => {
   };
   return (
     <>
-      <h2 className="text-3xl mb-8 font-bold text-center">Contact Me</h2>
+      <h2 className="text-3xl mb-8 font-bold text-center text-yellow-500">
+        Contact Me
+      </h2>
       <div className="text-start max-w-xl mx-auto">
         <form ref={form} onSubmit={sendEmail}>
           <div className="mb-4">
