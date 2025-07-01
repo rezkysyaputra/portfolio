@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={`${className} w-full bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg py-1.5 font-semibold text-lg`}
+      className={`${className} w-full bg-gradient-to-r from-cyan-400 via-blue-500 to-teal-400 hover:from-cyan-500 hover:to-blue-600 text-white rounded-lg py-1.5 font-semibold text-lg transition-colors`}
     >
       {children}
     </button>

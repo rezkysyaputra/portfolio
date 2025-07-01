@@ -9,7 +9,7 @@ const Link: React.FC<LinkProps> = ({ href, children, className }) => {
   return (
     <a
       href={href}
-      className={`${className} text-gray-700 dark:text-gray-300  transition`}
+      className={`${className} text-cyan-800 dark:text-cyan-200 transition`}
     >
       {children}
     </a>
