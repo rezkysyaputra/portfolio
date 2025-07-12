@@ -28,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       {/* Content overlay section */}
       <div className="absolute top-0 left-0 w-full px-4 pt-4 z-20">
-        <div className="bg-[#02111bcc] rounded-xl p-3 flex flex-col gap-2 shadow-[0_2px_8px_0_rgba(0,80,180,0.10)]">
+        <div className="bg-cyan-900 bg-opacity-40 rounded-xl p-3 flex flex-col gap-2 shadow-cyan-900/40">
           <h4 className="text-base font-bold text-cyan-200 truncate">{name}</h4>
           <div className="flex flex-wrap gap-2 items-center">
             {tags.map((tag, idx) => (

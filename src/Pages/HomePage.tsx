@@ -66,34 +66,22 @@ const skills = [
 
 const projects = [
   {
-    name: "JobXplore",
-    image: "/bg-project1.jpg",
-    link: "",
-    tags: ["Laravel", "Tailwind", "MySQL"],
+    name: "TriByte",
+    image: "/bg-tribyte.png",
+    link: "https://tribyte.me/",
+    tags: ["ReactJs", "Tailwind", "Framer Motion"],
   },
   {
-    name: "Movie TMDB",
-    image: "/bg-project2.jpg",
-    link: "",
-    tags: ["React", "Tailwind", "TMDB API"],
+    name: "CINETIX",
+    image: "/bg-cinetix.png",
+    link: "https://cinetix.shop/",
+    tags: ["Laravel", "Midtrans", "Filament", "MySQL"],
   },
   {
-    name: "Portfolio Modern",
-    image: "/bg-project1.jpg",
-    link: "",
-    tags: ["React", "Framer Motion", "Tailwind"],
-  },
-  {
-    name: "E-Commerce UI",
-    image: "/bg-project2.jpg",
-    link: "",
-    tags: ["Next.js", "Stripe", "Tailwind"],
-  },
-  {
-    name: "Blog Platform",
-    image: "/bg-project1.jpg",
-    link: "",
-    tags: ["Laravel", "React", "REST API"],
+    name: "MSIB 7: API Beli Galon",
+    image: "/bg-begal.png",
+    link: "https://github.com/rezkysyaputra/begal-backend",
+    tags: ["ExpressJs", "Midtrans", "MongoDB", "Rest API", "Swagger"],
   },
 ];
 
