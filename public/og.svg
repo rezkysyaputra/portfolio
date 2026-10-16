@@ -319,6 +319,6 @@
 <circle cx="938" cy="460" r="15" fill="rgb(97,97,97)" opacity="0.8"/>
 <circle cx="1008" cy="310" r="16" fill="rgb(69,69,69)" opacity="0.8"/>
   <text x="80" y="252" font-family="DejaVu Sans, Verdana, sans-serif" font-size="72" font-weight="bold" fill="#f5f5f5">Muh. Rezky Syaputra</text>
-  <text x="82" y="322" font-family="DejaVu Sans, Verdana, sans-serif" font-size="34" fill="#a3a3a3">Backend Engineer  ·  Go (Golang)</text>
+  <text x="82" y="322" font-family="DejaVu Sans, Verdana, sans-serif" font-size="34" fill="#a3a3a3">Backend Engineer</text>
   <text x="82" y="380" font-family="DejaVu Sans, Verdana, sans-serif" font-size="26" fill="#6b6b6b">rezky.kalodev.tech</text>
 </svg>
