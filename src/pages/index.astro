@@ -363,6 +363,11 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 800;
     margin-bottom: 24px;
   }
+  /* One-line name on tablet/desktop */
+  @media (min-width: 720px) {
+    .hero h1 { font-size: clamp(2.4rem, 6.8vw, 5.2rem); white-space: nowrap; }
+    .hero h1 br { display: none; }
+  }
   .hero-sub {
     font-size: clamp(1.05rem, 2.2vw, 1.3rem);
     color: var(--muted);
