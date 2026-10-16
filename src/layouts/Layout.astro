@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Muh. Rezky Syaputra — Backend Engineer (Go)',
+  description = 'Backend Engineer specializing in Go (Golang): payment workflows, ad-platform automation with the Meta Marketing API, and production-grade REST APIs.',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og.png', Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#050505" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Muh. Rezky Syaputra" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Muh. Rezky Syaputra',
+      jobTitle: 'Backend Engineer',
+      url: 'https://rezky.kalodev.tech',
+      address: { '@type': 'PostalAddress', addressLocality: 'Purbalingga', addressCountry: 'ID' },
+      sameAs: [
+        'https://www.linkedin.com/in/muhrezkysyaputra',
+        'https://github.com/rezkysyaputra',
+      ],
+      knowsAbout: ['Go (Golang)', 'Gin', 'REST API', 'PostgreSQL', 'Redis', 'RabbitMQ', 'Docker', 'Meta Marketing API', 'Xendit', 'Midtrans', 'Stripe'],
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universitas Amikom Yogyakarta' },
+    })} />
+  </head>
+  <body>
+    <slot />
+
+    <script is:inline>
+      // Scroll reveal
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>
