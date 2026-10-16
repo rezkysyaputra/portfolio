@@ -14,7 +14,17 @@ import Layout from '../layouts/Layout.astro';
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
     </div>
+    <nav class="nav-mobile" id="mobile-menu">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <main id="top">
@@ -24,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="hero-fade" aria-hidden="true"></div>
       <div class="container hero-content">
         <p class="eyebrow reveal">Backend Engineer · Go (Golang)</p>
-        <h1 class="reveal">Muh. Rezky<br />Syaputra</h1>
+        <h1 class="reveal">Muh. Rezky <br />Syaputra</h1>
         <p class="hero-sub reveal">
           I build backend systems that move money and ads — payment workflows,
           ad-platform automation, and production-grade REST APIs in Go.
@@ -139,7 +149,7 @@ import Layout from '../layouts/Layout.astro';
               tests — 90.64% code coverage with Jest and Supertest.
             </p>
             <a class="card-link" href="https://github.com/rezkysyaputra" target="_blank" rel="noopener noreferrer">
-              View on GitHub →
+              More projects →
             </a>
           </article>
         </div>
@@ -311,6 +321,26 @@ import Layout from '../layouts/Layout.astro';
       } else {
         load();
       }
+    }
+
+    // Mobile menu toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (toggle && mobileMenu) {
+      toggle.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('open');
+        toggle.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      mobileMenu.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open menu');
+        });
+      });
     }
   </script>
 </Layout>

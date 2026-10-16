@@ -62,6 +62,7 @@ const ogImage = new URL('/og.png', Astro.site);
   <body>
     <slot />
 
+    <noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
     <script is:inline>
       // Scroll reveal
       const io = new IntersectionObserver((entries) => {
