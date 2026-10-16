@@ -152,7 +152,53 @@ import Layout from '../layouts/Layout.astro';
         <p class="eyebrow reveal">Skills</p>
         <h2 class="section-title reveal">My toolbox.</h2>
 
-        <div class="skills-grid">
+        <div class="galaxy-wrap reveal">
+          <div class="galaxy" aria-label="Animated orbit map of technical skills">
+            <div class="g-core"><span>GO</span></div>
+
+            <div class="g-ring" style="--d:32%; --t:26s;">
+              <div class="g-spin" style="--phase:0"><span class="g-sat"><i class="d-fill"></i><b>Go</b></span></div>
+              <div class="g-spin" style="--phase:.25"><span class="g-sat"><i class="d-fill"></i><b>JavaScript</b></span></div>
+              <div class="g-spin" style="--phase:.5"><span class="g-sat"><i class="d-fill"></i><b>TypeScript</b></span></div>
+              <div class="g-spin" style="--phase:.75"><span class="g-sat"><i class="d-fill"></i><b>SQL</b></span></div>
+            </div>
+
+            <div class="g-ring" style="--d:54%; --t:42s;">
+              <div class="g-spin" style="--phase:0"><span class="g-sat"><i class="d-hollow"></i><b>Gin</b></span></div>
+              <div class="g-spin" style="--phase:.2"><span class="g-sat"><i class="d-hollow"></i><b>REST API</b></span></div>
+              <div class="g-spin" style="--phase:.4"><span class="g-sat"><i class="d-hollow"></i><b>Clean Architecture</b></span></div>
+              <div class="g-spin" style="--phase:.6"><span class="g-sat"><i class="d-hollow"></i><b>Hexagonal Architecture</b></span></div>
+              <div class="g-spin" style="--phase:.8"><span class="g-sat"><i class="d-hollow"></i><b>Swagger / OpenAPI</b></span></div>
+            </div>
+
+            <div class="g-ring" style="--d:76%; --t:60s;">
+              <div class="g-spin" style="--phase:0"><span class="g-sat"><i class="d-ring"></i><b>PostgreSQL</b></span></div>
+              <div class="g-spin" style="--phase:.111"><span class="g-sat"><i class="d-ring"></i><b>MariaDB</b></span></div>
+              <div class="g-spin" style="--phase:.222"><span class="g-sat"><i class="d-ring"></i><b>MySQL</b></span></div>
+              <div class="g-spin" style="--phase:.333"><span class="g-sat"><i class="d-ring"></i><b>MongoDB</b></span></div>
+              <div class="g-spin" style="--phase:.444"><span class="g-sat"><i class="d-ring"></i><b>Redis</b></span></div>
+              <div class="g-spin" style="--phase:.555"><span class="g-sat"><i class="d-ring"></i><b>RabbitMQ</b></span></div>
+              <div class="g-spin" style="--phase:.666"><span class="g-sat"><i class="d-ring"></i><b>Docker</b></span></div>
+              <div class="g-spin" style="--phase:.777"><span class="g-sat"><i class="d-ring"></i><b>Grafana</b></span></div>
+              <div class="g-spin" style="--phase:.888"><span class="g-sat"><i class="d-ring"></i><b>Git</b></span></div>
+            </div>
+
+            <div class="g-ring" style="--d:98%; --t:82s;">
+              <div class="g-spin" style="--phase:0"><span class="g-sat"><i class="d-dim"></i><b>Meta Marketing API</b></span></div>
+              <div class="g-spin" style="--phase:.25"><span class="g-sat"><i class="d-dim"></i><b>Xendit</b></span></div>
+              <div class="g-spin" style="--phase:.5"><span class="g-sat"><i class="d-dim"></i><b>Midtrans</b></span></div>
+              <div class="g-spin" style="--phase:.75"><span class="g-sat"><i class="d-dim"></i><b>Stripe</b></span></div>
+            </div>
+          </div>
+          <ul class="g-legend">
+            <li><i class="d-fill"></i> Languages</li>
+            <li><i class="d-hollow"></i> Backend &amp; APIs</li>
+            <li><i class="d-ring"></i> Databases &amp; Infra</li>
+            <li><i class="d-dim"></i> Integrations</li>
+          </ul>
+        </div>
+
+        <div class="skills-grid skills-fallback">
           <div class="card reveal">
             <h3>Languages</h3>
             <div><span class="tag">Go (Golang)</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span></div>
@@ -297,7 +343,19 @@ import Layout from '../layouts/Layout.astro';
       linear-gradient(to bottom, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0) 26%, rgba(5,5,5,0) 62%, var(--bg) 100%),
       linear-gradient(to right, rgba(5,5,5,0.72) 0%, rgba(5,5,5,0.25) 46%, rgba(5,5,5,0) 72%);
   }
-  .hero-content { position: relative; z-index: 2; max-width: var(--max-w); }
+  .hero-content { position: relative; z-index: 2; max-width: var(--max-w); pointer-events: none; }
+  .hero-content a { pointer-events: auto; }
+  /* Centered hero text on tablet/desktop, left-aligned on mobile */
+  @media (min-width: 720px) {
+    .hero-content { text-align: center; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-actions { justify-content: center; }
+    .hero-fade {
+      background:
+        radial-gradient(ellipse 78% 62% at 50% 42%, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.38) 55%, rgba(5,5,5,0) 78%),
+        linear-gradient(to bottom, rgba(5,5,5,0.5) 0%, rgba(5,5,5,0) 30%, rgba(5,5,5,0) 60%, var(--bg) 100%);
+    }
+  }
   .hero h1 {
     font-size: clamp(3rem, 8.5vw, 6.2rem);
     line-height: 1.02;
@@ -408,6 +466,100 @@ import Layout from '../layouts/Layout.astro';
   }
   @media (max-width: 760px) { .skills-grid { grid-template-columns: 1fr; } }
   .skills-grid .card h3 { margin-bottom: 20px; }
+
+  /* SKILL GALAXY — animated orbit map (tablet/desktop) */
+  .galaxy-wrap { margin-top: 48px; }
+  .galaxy {
+    position: relative;
+    width: min(700px, 100%);
+    aspect-ratio: 1;
+    margin: 0 auto;
+  }
+  .g-core {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 92px; height: 92px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 32%, #2e2e2e, #0a0a0a 72%);
+    border: 1px solid #3d3d3d;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 70px rgba(255,255,255,0.09);
+  }
+  .g-core span {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    font-size: 1.05rem;
+  }
+  .g-ring {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: var(--d);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 50%;
+  }
+  .g-spin {
+    position: absolute;
+    inset: 0;
+    animation: g-spin var(--t) linear infinite;
+    animation-delay: calc(var(--t) * var(--phase) * -1);
+  }
+  .g-sat { position: absolute; top: 0; left: 50%; width: 0; height: 0; }
+  .g-sat i {
+    position: absolute;
+    left: -7px; top: -7px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(255,255,255,0.5);
+  }
+  .g-sat i.d-hollow { background: transparent; border: 2px solid #fff; box-shadow: none; }
+  .g-sat i.d-dim { background: #8a8a8a; box-shadow: 0 0 10px rgba(255,255,255,0.25); }
+  .g-sat i.d-ring { box-shadow: 0 0 0 4px rgba(255,255,255,0.18), 0 0 12px rgba(255,255,255,0.4); }
+  .g-sat b {
+    position: absolute;
+    left: 14px; top: -10px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: #d4d4d4;
+    animation: g-spin var(--t) linear infinite reverse;
+    animation-delay: calc(var(--t) * var(--phase) * -1);
+  }
+  @keyframes g-spin { to { transform: rotate(360deg); } }
+  .g-legend {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 36px;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .g-legend li { display: flex; align-items: center; gap: 10px; }
+  .g-legend i { width: 12px; height: 12px; border-radius: 50%; background: #fff; display: inline-block; }
+  .g-legend i.d-hollow { background: transparent; border: 2px solid #fff; }
+  .g-legend i.d-dim { background: #8a8a8a; }
+  .g-legend i.d-ring { box-shadow: 0 0 0 3px rgba(255,255,255,0.18); }
+
+  /* Fallback cards: mobile + reduced motion */
+  .skills-grid.skills-fallback { display: none; }
+  @media (max-width: 719px) {
+    .galaxy-wrap { display: none; }
+    .skills-grid.skills-fallback { display: grid; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .galaxy-wrap { display: none; }
+    .skills-grid.skills-fallback { display: grid; }
+  }
 
   /* EDUCATION */
   .edu-grid {
