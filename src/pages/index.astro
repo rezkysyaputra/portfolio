@@ -380,13 +380,15 @@ import Layout from '../layouts/Layout.astro';
   }
   .hero-hint {
     position: absolute;
-    bottom: 28px;
-    right: 32px;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: var(--font-mono);
     font-size: 0.75rem;
     letter-spacing: 0.14em;
     color: var(--faint);
     opacity: 0.8;
+    white-space: nowrap;
   }
   @media (max-width: 760px) {
     .hero-hint { display: none; }

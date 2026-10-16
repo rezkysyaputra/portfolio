@@ -13,7 +13,7 @@ export async function initPlanet(canvas) {
   const scene = new THREE.Scene();
 
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-  camera.position.set(0, 1.1, 9.5);
+  camera.position.set(0, 1.4, 12);
 
   // --- Lights ---
   const key = new THREE.DirectionalLight(0xffffff, 2.6);
@@ -78,6 +78,7 @@ export async function initPlanet(canvas) {
   }
 
   const planetGroup = new THREE.Group();
+  planetGroup.position.set(0, -1.1, 0);
   scene.add(planetGroup);
 
   const planet = new THREE.Mesh(
@@ -169,6 +170,7 @@ export async function initPlanet(canvas) {
 
   // --- Controls: drag to rotate only ---
   const controls = new OrbitControls(camera, canvas);
+  controls.target.set(0, -1.1, 0);
   controls.enableZoom = false;
   controls.enablePan = false;
   controls.enableDamping = true;
